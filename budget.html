@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Planner</title>
+    <link rel="stylesheet" href="budget.css">
+</head>
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em;
+}
+
+section {
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#balance {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+  </style>
+<body>
+    <header>
+        <h1>Budget Planner</h1>
+    </header>
+
+    <section>
+        <h2>Income</h2>
+        <input type="number" id="income" placeholder="Enter income">
+        
+        <h2>Expenses</h2>
+        <input type="number" id="expenses" placeholder="Enter expenses">
+
+        <button onclick="calculateBalance()">Calculate Balance</button>
+
+        <h2 id="balance">Balance: $0.00</h2>
+    </section>
+
+    <script>
+        function calculateBalance() {
+            var income = parseFloat(document.getElementById('income').value) || 0;
+            var expenses = parseFloat(document.getElementById('expenses').value) || 0;
+            var balance = income - expenses;
+
+            document.getElementById('balance').textContent = 'Balance: $' + balance.toFixed(2);
+        }
+    </script>
+</body>
+</html>
